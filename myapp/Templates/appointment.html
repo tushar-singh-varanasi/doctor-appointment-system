@@ -1,0 +1,79 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}Appointment{% endblock title %}
+{% block content %}
+
+  </style>
+<h3>welcome {{request.user.first_name}}</h3>
+<div class="text-lg-left mt-5 px-5" ><a href="{% url 'appd' %}" class="btn btn-danger">View Your Appointment</a></div>
+  <div class="container">
+    <div class="row my-3">
+     <div class="col-sm-6 offset-sm-3">
+<h2> Book an Appointment.</h2>
+<form action="{% url 'appointment' %}" method="POsT">
+    {% csrf_token %} 
+    {% include 'message.html' %}
+    <div class="form-group">
+    <p>
+      <label for="id_Age">Age:</label>
+      <input type="number" name="Age" required id="id_Age">
+      
+      
+    </p>
+   
+    <p>
+        <label for="id_Gender">Gender:</label>
+        <select name="Gender" required id="id_Gender">
+      <option value="" selected>---------</option>
+    
+      <option value="Male">male</option>
+    
+      <option value="Female">Female</option>
+    
+    </select>
+        
+        
+      </p>
+    
+       <p>
+        <label for="id_Medical_Specialties">Medical Specialties:</label>
+        <select name="Medical_Specialties" required id="id_Medical_Specialties">
+      <option value="" selected>---------</option>
+    
+      <option value="Orthopedics">Orthopedics</option>
+    
+      <option value="Internal Medicine">Internal Medicine</option>
+    
+      <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+    
+      <option value="Dermatology">Dermatology</option>
+    
+      <option value="Pediatrics">Pediatric</option>
+    
+      <option value="Radiology"> Radiology</option>
+    
+      <option value="General Surgery"> General Surgery</option>
+    
+      <option value="Ophthalmology">Ophthalmolog</option>
+    
+    </select>
+        
+        
+      </p>
+    
+      
+      <p>
+        <label for="datetimepicker3">Date and time:</label>
+        <input type="text" name="Date_and_time" id="datetimepicker3" required placeholder=" YYYY-MM-DD HH:MM">
+        </p>
+     
+
+      <input type="submit" value="submit" class="btn btn-primary">
+</div>
+</form>
+</div>
+  </div>
+</div>
+
+
+{% endblock %}

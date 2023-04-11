@@ -1,0 +1,47 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}Appointment{% endblock title %}
+{% block content %}
+<h2>Appointment History</h2>
+	<table style="width:50%">
+        {% for i in App %}
+		<tr>
+			<th>Name:</th>
+			<td>{{i.Patient_detail.first_name}} {{i.Patient_detail.last_name}}  </td>
+		</tr>
+		<tr>
+			<th rowspan="2">Age</th>
+			<td>{{i.Age}}</td>
+		</tr>
+		<tr>
+            <th>Gender</th>
+			<td>{{i.Gender}}</td>
+		</tr>
+        <tr>
+            <th>Medical Department</th>
+            <td>{{i.Medical_Specialties}}</td>
+        </tr>
+        <tr>
+            <th>Date_and_time</th>
+            <td>{{i.Date_and_time}}</td>
+        </tr>
+        {% endfor %}
+       
+
+	</table>
+<style>
+        table,
+        th,
+        td {
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 3px;
+            text-align: left;
+        }
+        </style>
+
+{% endblock %}
